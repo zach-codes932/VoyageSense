@@ -7,8 +7,9 @@ from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.compose import ColumnTransformer
 
 # Paths
-DATA_PATH = r"D:\Travel RS\data\processed\destinations_with_sentiment.csv"
-ARTIFACTS_DIR = r"D:\Travel RS\data\artifacts"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "destinations_with_sentiment.csv")
+ARTIFACTS_DIR = os.path.join(PROJECT_ROOT, "data", "artifacts")
 
 class TravelFeatureEngine:
     def __init__(self):
@@ -58,6 +59,11 @@ class TravelFeatureEngine:
     def transform(self, df):
         if self.column_transformer is None:
             self.load_encoders()
+            
+        # Ensure schema matches what was fitted
+        if 'google_review_rating' in df.columns:
+            df = df.rename(columns={'google_review_rating': 'google_rating'})
+            
         return self.column_transformer.transform(df)
 
     def create_user_vector(self, user_dict):

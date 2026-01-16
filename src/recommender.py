@@ -5,7 +5,11 @@ import sqlite3
 from sklearn.metrics.pairwise import cosine_similarity
 from src.feature_engine import TravelFeatureEngine
 
-DB_PATH = r"D:\Travel RS\data\travel.db"
+import os
+
+# Get project root (parent of src)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(PROJECT_ROOT, "data", "travel.db")
 
 class TravelRecommender:
     def __init__(self):

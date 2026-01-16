@@ -5,8 +5,10 @@ import os
 import json
 
 # Configuration
-DB_PATH = r"D:\Travel RS\data\travel.db"
-CSV_PATH = r"D:\Travel RS\data\processed\destinations_with_sentiment.csv"
+# Configuration
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(PROJECT_ROOT, "data", "travel.db")
+CSV_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "destinations_with_sentiment.csv")
 
 def init_db():
     print(f"Initializing database at {DB_PATH}...")
