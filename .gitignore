@@ -1,0 +1,26 @@
+# Python internals
+__pycache__/
+*.pyc
+
+# Environment & Config
+.env
+venv/
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml
+# Note: Streamlit config is usually safe, but secrets must be ignored.
+
+# SECURITY: API Keys
+# This file contains your real GEMINI and YOUTUBE keys.
+# Do NOT remove this line unless you have moved keys to env vars.
+src/config.py
+
+# Data (Optional - usually data is heavy, but for this project CSV is fine)
+# Uncomment the next line if you want to exclude data
+# data/
+
+# Temporary / Scratchpad files
+app2.py
+*.log
