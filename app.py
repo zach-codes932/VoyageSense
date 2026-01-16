@@ -28,8 +28,8 @@ st.markdown("""
         margin-bottom: 4px;
     }
     .sub-font {
-        font-size: 20px !important;
-        color: #6B7280;
+        font-size: 24px !important;
+        color: #D7DBDE;
         margin-top: 0px;
         margin-bottom: 35px;
     }
@@ -41,7 +41,7 @@ st.markdown("""
 
     [data-testid="stSidebar"] h1 {
         font-size: 22px !important;
-        margin-bottom: 12px;
+        margin-bottom: 1px;
     }
 
     [data-testid="stSidebar"] label {
@@ -75,14 +75,14 @@ st.markdown("""
     }
 
     .recommend-meta {
-        font-size: 15px;
-        color: #6B7280;
+        font-size: 16px;
+        color: #B3B7BA;
         margin-bottom: 10px;
     }
 
     .recommend-explain {
-        font-size: 14px;
-        color: #4B5563; /* Darker than app2 for visibility */
+        font-size: 15px;
+        color: #A1A4A6; /* Darker than app2 for visibility */
         font-style: italic;
     }
     
@@ -113,6 +113,8 @@ if 'user_profile' not in st.session_state:
 # --- Sidebar: User Profile ---
 with st.sidebar:
     st.title("🪧 User Profile")
+
+    st.markdown('<hr class="colorful-separator">', unsafe_allow_html=True)
 
     st.markdown("### 🧍 Travel Preferences")
 
