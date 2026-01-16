@@ -94,6 +94,33 @@ st.markdown("""
         margin: 25px 0 25px 0;
         border: none !important;
     }
+
+    /* ---------- Profile Summary Card ---------- */
+    .profile-summary {
+        background-color: #F8F9FA;
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: space-around;
+        border: 1px solid #E9ECEF;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    
+    .profile-item {
+        font-size: 15px;
+        font-weight: 600;
+        color: #495057;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .profile-icon {
+        font-size: 18px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -208,6 +235,18 @@ st.markdown('<p class="big-font">🚞 VoyageSense</p>', unsafe_allow_html=True)
 st.markdown('<p class="sub-font">An Intelligent Travel Recommendation System</p>', unsafe_allow_html=True)
 
 if st.session_state.recommendations is not None:
+    # --- Profile Summary Card ---
+    p = st.session_state.user_profile
+    if p:
+        st.markdown(f"""
+        <div class="profile-summary">
+            <div class="profile-item"><span class="profile-icon">🏔️</span> {p.get('type', 'Any')}</div>
+            <div class="profile-item"><span class="profile-icon">⏳</span> {p.get('duration_bucket', 'Any')}</div>
+            <div class="profile-item"><span class="profile-icon">💰</span> {p.get('budget_bucket', 'Any')}</div>
+            <div class="profile-item"><span class="profile-icon">📍</span> {p.get('zone', 'Any')} Zone</div>
+        </div>
+        """, unsafe_allow_html=True)
+
     st.info("💡 Click on **View Details** to know more about the place and see travel vlogs.")
 
 if st.session_state.recommendations is None:
